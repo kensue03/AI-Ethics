@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 데이터 보안관: 비밀 본부 탈출</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+            background-color: #f0f7ff;
+        }
+        body {
+            font-family: 'Nanum Gothic', 'Malgun Gothic', sans-serif;
+            margin: 0;
+            padding: 40px;
+            color: #333;
+            background-color: #f0f7ff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 10px solid #4a90e2;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 24pt;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14pt;
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9fbff;
+            border-radius: 15px;
+            border-left: 5px solid #4a90e2;
+        }
+        .section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+        .code-block {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 9pt;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 AI 데이터 보안관 탈출 게임</h1>
+        <p class="subtitle">초등학교 5학년 수준 데이터 윤리 교육용 웹 코드</p>
+
+        <div class="section">
+            <div class="section-title">1. 프로젝트 설명</div>
+            <p>이 코드는 별도의 서버 설치 없이 <strong>HTML 파일 하나만으로 작동</strong>하는 웹 게임입니다. 아이들이 직관적인 버튼 클릭을 통해 데이터 관리의 중요성을 배울 수 있도록 설계되었습니다.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">2. HTML/JS 전체 코드</div>
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;인공지능 데이터 탐험대&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: sans-serif; background: #eef2f3; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        #game-card { background: white; width: 90%; max-width: 500px; padding: 40px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #3498db; }
+        #status { font-weight: bold; color: #7f8c8d; margin-bottom: 20px; }
+        #question { font-size: 1.2em; margin-bottom: 30px; line-height: 1.6; min-height: 80px; }
+        .btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border: none; border-radius: 12px; background: #3498db; color: white; font-size: 1.1em; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #2980b9; transform: translateY(-2px); }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="game-card"&gt;
+        &lt;h1&gt;🛡️ 데이터 보안관&lt;/h1&gt;
+        &lt;div id="status"&gt;준비 완료&lt;/div&gt;
+        &lt;div id="question"&gt;비밀 본부를 탈출할 준비가 되었나요?&lt;/div&gt;
+        &lt;div id="buttons"&gt;
+            &lt;button class="btn" onclick="startGame()"&gt;게임 시작하기!&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        const q = document.getElementById('question');
+        const b = document.getElementById('buttons');
+        const s = document.getElementById('status');
+
+        function render(txt, opts, step) {
+            s.innerText = step; q.innerText = txt; b.innerHTML = '';
+            opts.forEach(o => {
+                const btn = document.createElement('button');
+                btn.className = 'btn'; btn.innerText = o.t;
+                btn.onclick = () => o.c ? o.n() : alert('❌ 다시 생각해보세요!');
+                b.appendChild(btn);
+            });
+        }
+
+        function startGame() {
+            render("(1-1) 축구 게임을 만들 때 어떤 정보를 물어볼까요?", 
+            [{t: "1. 좋아하는 선수 이름", c: true, n: s12}, {t: "2. 우리 집 주소", c: false}], "제 1단계");
+        }
+        function s12() {
+            render("(1-2) 어린이 정보를 모을 땐 누구의 허락이 필요할까요?", 
+            [{t: "1. 옆집 형", c: false}, {t: "2. 부모님이나 보호자", c: true, n: s21}], "제 1단계");
+        }
+        function s21() {
+            render("(2-1) 모은 소중한 정보는 어떻게 보관할까요?", 
+            [{t: "1. 비밀번호 자물쇠 걸기", c: true, n: s22}, {t: "2. 학교 게시판에 붙이기", c: false}], "제 2단계");
+        }
+        function s22() {
+            render("(2-2) 이름이 그대로 있으면 어떻게 할까요?", 
+            [{t: "1. 별명으로 바꾸기", c: true, n: s31}, {t: "2. 그대로 두기", c: false}], "제 2단계");
+        }
+        function s31() {
+            render("(3-1) 사용이 끝난 정보는 어떻게 할까요?", 
+            [{t: "1. 평생 가지고 있기", c: false}, {t: "2. 깨끗하게 지우기", c: true, n: s32}], "제 3단계");
+        }
+        function s32() {
+            render("(3-2) 친구가 자기 정보를 지워달라고 하면?", 
+            [{t: "1. 안 된다고 하기", c: false}, {t: "2. 확인하고 지워주기", c: true, n: finish}], "제 3단계");
+        }
+        function finish() {
+            s.innerText = "임무 완료"; q.innerText = "🎊 탈출 성공! 멋진 보안관이 되셨군요!"; b.innerHTML = '';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+        </div>
+    </div>
+</body>
+</html>
